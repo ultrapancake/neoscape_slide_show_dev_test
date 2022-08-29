@@ -1,0 +1,74 @@
+*{box-sizing:border-box}
+body{
+    background-color: lightcyan;
+}
+/* default none to turn on and off */
+.slide{
+    display: none;
+}
+/* basic img styling */
+img{
+    vertical-align: middle;
+    width: 100%;
+    height: 600px;
+}
+.container{
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+}
+/* arrows */
+.prev, .next{
+    position: absolute;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    top: 50%;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.7s ease;
+    color: lightslategray;
+    font-weight: bold;
+    font-size: 24px;
+}
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover{
+    background-color: darkslategray;
+}
+/* top left slide number */
+.number{
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px;
+    position:absolute;
+}
+/* dots img indicator */
+.dot-container{
+    text-align: center;
+}
+.dot{
+    height: 15px;
+    width: 15px;
+    margin: 2px;
+    background-color: lightslategray;
+    display: inline-block;
+    transition: background-color 0.7s ease;
+    cursor: pointer;
+}
+.active, .dot:hover{
+    background-color: darkslategray;
+}
+/* animation */
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade{
+    from{opacity: .4}
+    to{opacity: 1}
+}

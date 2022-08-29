@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Slide Show</title>
     <style>
         *{box-sizing:border-box}
+        body{
+            background-color: lightcyan;
+        }
         /* default none to turn on and off */
         .slide{
             display: none;
@@ -33,18 +37,18 @@
             cursor: pointer;
             user-select: none;
             transition: 0.7s ease;
-            color: gray;
+            color: lightslategray;
             font-weight: bold;
             font-size: 24px;
         }
-        /* move next btn */
         .next{
             right: 0;
             border-radius: 3px 0 0 3px;
         }
         .prev:hover, .next:hover{
-            background-color: black;
+            background-color: darkslategray;
         }
+        /* top left slide number */
         .number{
             color: black;
             font-size: 12px;
@@ -140,38 +144,6 @@
         <span class="dot" onclick="currentSlide(9)"></span>
         <span class="dot" onclick="currentSlide(10)"></span>
     </div>
-    <script>
-        let index = 1;
-        showSlides(index);
-        // arrow functions
-        function moveSlide(e){
-            showSlides(index += e);
-        }
-        // dot function
-        function currentSlide(e){
-            showSlides(index = e);
-        }
-        //manipulate slide
-        function showSlides(e){
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-            //if next @ end of slide loop to begining
-            if(e > slides.length){index = 1}
-            //if prev @ start loop to end
-            if(e < 1){index = slides.length}
-            //clear slides
-            for (let i = 0; i < slides.length; i++){
-                slides[i].style.display = "none"
-            }
-            //clear dots
-            for(let i = 0; i < dots.length; i++){
-                dots[i].classList.remove("active");
-            }
-            //set slide
-            slides[index-1].style.display = "block";
-            //set dot
-            dots[index-1].classList.add("active");
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
